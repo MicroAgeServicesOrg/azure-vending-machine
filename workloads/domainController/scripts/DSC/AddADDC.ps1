@@ -58,14 +58,6 @@ configuration AddADDC
             DependsOn = "[WindowsFeature]DNS"
         }
 
-        xDnsServerAddress DnsServerAddress 
-        { 
-            Address        = '127.0.0.1' 
-            InterfaceAlias = $InterfaceAlias
-            AddressFamily  = 'IPv4'
-            DependsOn      = "[WindowsFeature]DNS"
-        }
-
         xWaitforDisk Disk2
         {
             DiskNumber = 2
