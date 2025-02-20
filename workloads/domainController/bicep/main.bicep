@@ -1,6 +1,6 @@
-param addsSubnetId string = '/subscriptions/541b579a-8176-433f-a1b6-a6023b9b48bc/resourceGroups/masvcBicep-wus3-identity-rg/providers/Microsoft.Network/virtualNetworks/masvcBicepHubVnet/subnets/addsSubnet'
-param location string = 'westus3'
-param dcPrefix string = 'wus3'
+param addsSubnetId string
+param location string
+param dcPrefix string
 @secure()
 param adminPassword string
 param dcCount int = 2 //number of VMs to deploy
@@ -10,13 +10,12 @@ param zones array = [
   3
 ]
 
-param domainName string = 'masvc.local'
-param domainSiteName string = 'Azure'
-param domainAdminUsername string = 'domainjoin'
+param domainName string
+param domainSiteName string
+param domainAdminUsername string
 @secure()
 param domainAdminPassword string
-
-param safeModeUsername string = 'safemodeadmin'
+param safeModeUsername string
 @secure()
 param safeModePassword string
 
