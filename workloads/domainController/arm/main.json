@@ -5,21 +5,18 @@
     "_generator": {
       "name": "bicep",
       "version": "0.33.93.31351",
-      "templateHash": "7934119658751196429"
+      "templateHash": "7013843656993469900"
     }
   },
   "parameters": {
     "addsSubnetId": {
-      "type": "string",
-      "defaultValue": "/subscriptions/541b579a-8176-433f-a1b6-a6023b9b48bc/resourceGroups/masvcBicep-wus3-identity-rg/providers/Microsoft.Network/virtualNetworks/masvcBicepHubVnet/subnets/addsSubnet"
+      "type": "string"
     },
     "location": {
-      "type": "string",
-      "defaultValue": "westus3"
+      "type": "string"
     },
-    "locationCode": {
-      "type": "string",
-      "defaultValue": "wus3"
+    "dcPrefix": {
+      "type": "string"
     },
     "adminPassword": {
       "type": "securestring"
@@ -37,23 +34,19 @@
       ]
     },
     "domainName": {
-      "type": "string",
-      "defaultValue": "masvc.local"
+      "type": "string"
     },
     "domainSiteName": {
-      "type": "string",
-      "defaultValue": "Azure"
+      "type": "string"
     },
     "domainAdminUsername": {
-      "type": "string",
-      "defaultValue": "domainjoin"
+      "type": "string"
     },
     "domainAdminPassword": {
       "type": "securestring"
     },
     "safeModeUsername": {
-      "type": "string",
-      "defaultValue": "safemodeadmin"
+      "type": "string"
     },
     "safeModePassword": {
       "type": "securestring"
@@ -75,7 +68,7 @@
         "mode": "Incremental",
         "parameters": {
           "name": {
-            "value": "[format('{0}-dc{1}', parameters('locationCode'), add(range(0, parameters('dcCount'))[copyIndex()], 1))]"
+            "value": "[format('{0}-dc{1}', parameters('dcPrefix'), add(range(0, parameters('dcCount'))[copyIndex()], 1))]"
           },
           "adminUsername": {
             "value": "azadmin"
@@ -144,7 +137,7 @@
               "settings": {
                 "wmfVersion": "latest",
                 "configuration": {
-                  "url": "https://masvcwus3dscconfig.blob.core.windows.net/scripts/promote-adds.zip",
+                  "url": "https://github.com/MicroAgeServicesOrg/azure-vending-machine/raw/refs/heads/main/workloads/domainController/scripts/DSC/promote-adds.zip",
                   "script": "promote-adds.ps1",
                   "function": "CreateADReplicaDC"
                 },
