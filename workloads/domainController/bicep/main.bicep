@@ -70,7 +70,7 @@ module domainController1 'br/public:avm/res/compute/virtual-machine:0.12.0' = [ 
         settings: {
           wmfVersion: 'latest'
           configuration: {
-            url: 'https://masvcwus3dscconfig.blob.core.windows.net/scripts/promote-adds.zip'
+            url: 'https://github.com/MicroAgeServicesOrg/azure-vending-machine/raw/refs/heads/main/workloads/domainController/scripts/DSC/promote-adds.zip'
             script: 'promote-adds.ps1'
             function: 'CreateADReplicaDC'
           }
