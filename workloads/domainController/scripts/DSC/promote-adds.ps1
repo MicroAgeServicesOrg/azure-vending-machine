@@ -48,6 +48,12 @@ Configuration CreateADReplicaDC
           Name = "AD-Domain-Services"
           DependsOn = "[xDSCDomainJoin]JoinDomain"
        }
+       WindowsFeature ADDSTools
+       { 
+          Ensure = "Present" 
+          Name = "RSAT-ADDS-Tools"
+          DependsOn = "[WindowsFeature]ADDSInstall"
+       }
 
        WaitForADDomain DscForestWait
        { 
