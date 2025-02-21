@@ -238,7 +238,7 @@
             "location": "[steps('basics').resourceScope.location.name]",
             "resourceGroupId": "[steps('basics').resourceScope.resourceGroup.id]",
             "parameters": {
-                "addsSubnetId": "[steps('network').addsvNetId]",
+                "dcPrefix": "[steps('network').addsvNetId]",
                 "location": "[steps('basics').resourceScope.location.name]",
                 "locationCode": "[steps('dcSettings').dcPrefix]",
                 "adminPassword": "[steps('dcSettings').adminPassword]",
