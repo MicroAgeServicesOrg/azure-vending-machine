@@ -5,7 +5,7 @@
     "_generator": {
       "name": "bicep",
       "version": "0.33.93.31351",
-      "templateHash": "7013843656993469900"
+      "templateHash": "9037738802431725476"
     }
   },
   "parameters": {
@@ -13,6 +13,9 @@
       "type": "string"
     },
     "location": {
+      "type": "string"
+    },
+    "vmSKU": {
       "type": "string"
     },
     "dcPrefix": {
@@ -24,6 +27,9 @@
     "dcCount": {
       "type": "int",
       "defaultValue": 2
+    },
+    "useAvailabilityZones": {
+      "type": "bool"
     },
     "zones": {
       "type": "array",
@@ -123,11 +129,9 @@
             "value": "Windows"
           },
           "vmSize": {
-            "value": "Standard_D2ads_v5"
+            "value": "[parameters('vmSKU')]"
           },
-          "zone": {
-            "value": "[parameters('zones')[mod(range(0, parameters('dcCount'))[copyIndex()], length(parameters('zones')))]]"
-          },
+          "zone": "[if(parameters('useAvailabilityZones'), createObject('value', parameters('zones')[mod(range(0, parameters('dcCount'))[copyIndex()], length(parameters('zones')))]), createObject('value', null()))]",
           "location": {
             "value": "[parameters('location')]"
           },
