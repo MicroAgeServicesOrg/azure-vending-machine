@@ -18,6 +18,25 @@
                                 ]
                             }
                         },
+						{
+							"name": "vmSKU",
+							"type": "Microsoft.Compute.SizeSelector",
+							"label": "VM Size",
+							"toolTip": "",
+							"recommendedSizes": [
+								"Standard_D2ads_v5"
+							],
+							"constraints": {
+								"allowedSizes": [],
+								"excludedSizes": [],
+								"required": true
+							},
+							"options": {
+								"hiddenDiskTypeFilter": true
+							},
+							"osPlatform": "Windows",
+							"count": "[steps('basics').dcCount]"
+						},
                         {
                             "name": "dcCount",
                             "type": "Microsoft.Common.TextBox",
@@ -240,6 +259,7 @@
             "parameters": {
                 "addsSubnetId": "[steps('network').virtualNetworkADDSSubnetSelectorName]",
                 "location": "[steps('basics').resourceScope.location.name]",
+				"vmSKU": "[steps('basics').vmSKU]",
                 "dcPrefix": "[steps('dcSettings').dcPrefix]",
                 "adminPassword": "[steps('dcSettings').adminPassword]",
                 "dcCount": "[steps('basics').dcCount]",

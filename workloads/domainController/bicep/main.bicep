@@ -1,5 +1,6 @@
 param addsSubnetId string
 param location string
+param vmSKU string
 param dcPrefix string
 @secure()
 param adminPassword string
@@ -62,7 +63,7 @@ module domainController1 'br/public:avm/res/compute/virtual-machine:0.12.0' = [ 
       }
     ]
     osType: 'Windows'
-    vmSize: 'Standard_D2ads_v5'
+    vmSize: vmSKU
     zone: zones[i % length(zones)]
     location: location
     extensionDSCConfig: {
