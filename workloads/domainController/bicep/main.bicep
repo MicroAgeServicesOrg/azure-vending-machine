@@ -5,6 +5,7 @@ param dcPrefix string
 @secure()
 param adminPassword string
 param dcCount int = 2 //number of VMs to deploy
+param useAvailabilityZones bool
 param zones array = [
   1
   2
@@ -64,7 +65,7 @@ module domainController1 'br/public:avm/res/compute/virtual-machine:0.12.0' = [ 
     ]
     osType: 'Windows'
     vmSize: vmSKU
-    zone: zones[i % length(zones)]
+    zone: useAvailabilityZones ? zones[i % length(zones)] : null
     location: location
     extensionDSCConfig: {
         enabled: true

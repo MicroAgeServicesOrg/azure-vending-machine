@@ -52,11 +52,19 @@
                             "visible": true
                         },
 						{
+							"name": "azOption",
+							"type": "Microsoft.Common.CheckBox",
+							"label": "Use Availability Zones",
+							"defaultValue": true,
+							"toolTip": "Selecting this will enable the Availability Zone Deployment for Domain Controllers."
+						},
+						{
 							"name": "zones",
 							"type": "Microsoft.Common.DropDown",
 							"label": "Zones",
 							"defaultValue":["Zone 1", "Zone 2"],
 							"multiselect": true,
+							"visible": "[steps('basics').azOption]",
 							"constraints": {
 								"allowedValues": [
 									{
@@ -264,6 +272,7 @@
                 "adminPassword": "[steps('dcSettings').adminPassword]",
                 "dcCount": "[steps('basics').dcCount]",
                 "zones": "[steps('basics').zones]",
+				"useAvailabilityZones": "[steps('basics').azOption]",
                 "domainName": "[steps('dcSettings').domainName]",
                 "domainSiteName": "[steps('dcSettings').domainSiteName]",
                 "domainAdminUsername": "[steps('dcSettings').domainAdminUsername]",
