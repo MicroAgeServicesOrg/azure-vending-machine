@@ -64,7 +64,7 @@ Configuration CreateADReplicaDC
          DatabasePath = "F:\NTDS\Database"
          LogPath = "F:\NTDS\Logs"
          SysvolPath = "F:\SYSVOL"
-         DependsOn = "[WaitForADDomain]DscForestWait"
+         DependsOn = "[WindowsFeature]ADDSInstall"
       }
 
       PendingReboot Reboot1
