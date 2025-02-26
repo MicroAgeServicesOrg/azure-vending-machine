@@ -55,14 +55,7 @@ Configuration CreateADReplicaDC
           DependsOn = "[WindowsFeature]ADDSInstall"
        }
 
-       WaitForADDomain DscForestWait
-       { 
-          DomainName = $DomainName 
-          Credential= $DomainCreds
-          DependsOn = "[WindowsFeature]ADDSInstall"
-      }
-
-      ADDomainController ReplicaDC 
+      ADDomainController ReplicaDC
       { 
          DomainName = $DomainName
          SiteName = $adSiteName
