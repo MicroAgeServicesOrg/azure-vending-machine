@@ -1,5 +1,5 @@
 {
-    "name": "cto_custom_deploy-centralized-recovery-services-vault",
+    "name": "masvc_custom_deploy-centralized-recovery-services-vault",
     "properties": {
       "displayName": "Deploy Centralized Recovery Services Vault",
       "policyType": "Custom",
