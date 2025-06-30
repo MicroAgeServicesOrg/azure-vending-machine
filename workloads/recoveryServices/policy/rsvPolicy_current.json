@@ -1,11 +1,13 @@
 {
-    "displayName": "Configure backup on virtual machines without a given tag to an existing recovery services vault in the same location",
-    "policyType": "BuiltIn",
+  "name": "masvc_configureBackupOnVMsWithoutTag",
+  "properties": {
+    "policyType": "Custom",
     "mode": "Indexed",
+    "displayName": "Configure backup on virtual machines without a given tag to an existing recovery services vault in the same location",
     "description": "Enforce backup for all virtual machines by backing them up to an existing central recovery services vault in the same location and subscription as the virtual machine. Doing this is useful when there is a central team in your organization managing backups for all resources in a subscription. You can optionally exclude virtual machines containing a specified tag to control the scope of assignment. See https://aka.ms/AzureVMCentralBackupExcludeTag.",
     "metadata": {
-        "version": "9.4.0",
-        "category": "Backup"
+      "version": "1.0.0",
+      "category": "Backup"
     },
     "parameters": {
         "vaultLocation": {
@@ -30,7 +32,7 @@
                 "displayName": "Exclusion Tag Name",
                 "description": "Name of the tag to use for excluding VMs from the scope of this policy. This should be used along with the Exclusion Tag Value parameter. Learn more at https://aka.ms/AppCentricVMBackupPolicy."
             },
-            "defaultValue": ""
+            "defaultValue": "excludeFromBackup"
         },
         "exclusionTagValue": {
             "type": "Array",
@@ -38,7 +40,13 @@
                 "displayName": "Exclusion Tag Values",
                 "description": "Value of the tag to use for excluding VMs from the scope of this policy (in case of multiple values, use a comma-separated list). This should be used along with the Exclusion Tag Name parameter. Learn more at https://aka.ms/AppCentricVMBackupPolicy."
             },
-            "defaultValue": []
+            "defaultValue": [
+                "true",
+                "True",
+                "yes",
+                "Yes",
+                "1"
+            ]
         },
         "effect": {
             "type": "String",
@@ -148,7 +156,19 @@
                                         "2022-datacenter-core",
                                         "2022-datacenter-core-smalldisk-g2",
                                         "2022-datacenter-core-smalldisk",
-                                        "2022-datacenter-azure-edition-hotpatch"
+                                        "2022-datacenter-azure-edition-hotpatch",
+                                        "2025-datacenter",
+                                        "2025-datacenter-azure-edition",
+                                        "2025-datacenter-azure-edition-core",
+                                        "2025-datacenter-azure-edition-core-smalldisk",
+                                        "2025-datacenter-azure-edition-smalldisk",
+                                        "2025-datacenter-core",
+                                        "2025-datacenter-core-g2",
+                                        "2025-datacenter-core-smalldisk",
+                                        "2025-datacenter-core-smalldisk-g2",
+                                        "2025-datacenter-g2",
+                                        "2025-datacenter-smalldisk",
+                                        "2025-datacenter-smalldisk-g2"
                                     ]
                                 }
                             ]
@@ -658,4 +678,5 @@
             }
         }
     }
+  }
 }

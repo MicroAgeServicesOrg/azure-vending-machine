@@ -1,13 +1,35 @@
+targetScope = 'managementGroup'
+param subscriptionID string
+param backupRGName string
+param location string = 'westus3'
+param vaultName string
+
+param assignmentMgmtGroupID string
+
+param backupPolicy object = loadJsonContent('../policy/rsvPolicy_current.json')
 
 
 
-
-module recoveryServicesVaults 'br/public:avm/res/recovery-services/vault:0.8.0' = {
-  name: 'vaultDeployment'
+module vault 'vault.bicep' = {
+  scope: subscription(subscriptionID)
   params: {
-    name: 'testVault'
-    backupConfig: {
-      
-    }
+    location: location
+    backupRGName: backupRGName
+    vaultName: vaultName
+  }
+}
+
+module azurePolicy 'policy.bicep' = {
+  params: {
+    backupPolicy: backupPolicy
+  }
+}
+
+module azurePolicyAssugnment 'policyAssignment.bicep' = {
+  scope: managementGroup(assignmentMgmtGroupID)
+  params: {
+    location: location
+    vaultID: vault.outputs.vaultId
+    vmPolicyDefinitionID: azurePolicy.outputs.vaultPolicyDefinitionID
   }
 }
