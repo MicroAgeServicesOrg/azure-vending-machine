@@ -21,6 +21,8 @@ module vault 'br/public:avm/res/recovery-services/vault:0.9.1' = {
     backupConfig: {
       enhancedSecurityState: 'Disabled'
       softDeleteFeatureState: 'Disabled'
+      storageModelType: 'ZoneRedundant'
+      storageType: 'ZoneRedundant'
     }
     backupPolicies: [
       {
