@@ -23,17 +23,17 @@ Configuration CreateADReplicaDC
           RebootNodeIfNeeded = $true            
        }
 
-        WaitforDisk Disk2
+        WaitforDisk Disk1
         {
-            DiskId = 2
+            DiskId = 1
             RetryIntervalSec =$RetryIntervalSec
             RetryCount = $RetryCount
         }
 
         Disk ADDataDisk {
-            DiskId = 2
+            DiskId = 1
             DriveLetter = "F"
-            DependsOn = "[WaitForDisk]Disk2"
+            DependsOn = "[WaitForDisk]Disk1"
         }
 
         xDSCDomainjoin JoinDomain
