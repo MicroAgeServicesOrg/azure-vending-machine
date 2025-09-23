@@ -2,11 +2,11 @@ using 'main.bicep'
 
 param location = 'eastus2'
 
-param subscriptionID = '00000-000000'
+param subscriptionID = 'ef0cd09b-258d-4663-9c21-ede0bc125678'
 
-param backupRGName = 'masvc-eus2-platform-recovery-rg'
+param backupRGName = 'lsw-eus2-corp-recovery-rg'
 
-param vaultName = 'masvc-eus2-platform-rsv'
+param vaultName = 'lsw-eus2-corp-rsv'
 
-param assignmentMgmtGroupID = 'platform'
+param assignmentMgmtGroupID = 'lsw-landingzones-corp'
 
