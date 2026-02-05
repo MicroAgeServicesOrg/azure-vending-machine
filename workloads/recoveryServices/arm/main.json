@@ -4860,7 +4860,7 @@
       "type": "Microsoft.Resources/deployments",
       "apiVersion": "2022-09-01",
       "name": "[format('azurePolicyAssugnment-{0}', uniqueString('azurePolicyAssugnment', deployment().name))]",
-      "scope": "[format('Microsoft.Management/managementGroups/{0}', parameters('assignmentMgmtGroupID'))]",
+      "scope": "[parameters('assignmentMgmtGroupID')]",
       "location": "[deployment().location]",
       "properties": {
         "expressionEvaluationOptions": {

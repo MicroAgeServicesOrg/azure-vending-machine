@@ -1,12 +1,12 @@
 using 'main.bicep'
 
-param location = 'eastus2'
+param location = 'westus3'
 
-param subscriptionID = 'ef0cd09b-258d-4663-9c21-ede0bc125678'
+param subscriptionID = 'd311aea9-f758-4ac0-bee7-f7b8468b9d15'
 
-param backupRGName = 'lsw-eus2-corp-recovery-rg'
+param backupRGName = 'tbcs-wus3-corp-recovery-rg'
 
-param vaultName = 'lsw-eus2-corp-rsv'
+param vaultName = 'tbcs-wus3-corp-rsv'
 
-param assignmentMgmtGroupID = 'lsw-landingzones-corp'
+param assignmentMgmtGroupID = 'corp'
 
