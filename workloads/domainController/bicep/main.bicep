@@ -65,7 +65,7 @@ module domainController1 'br/public:avm/res/compute/virtual-machine:0.12.0' = [ 
     ]
     osType: 'Windows'
     vmSize: vmSKU
-    zone: useAvailabilityZones ? zones[i % length(zones)] : null
+    zone: useAvailabilityZones ? zones[i % length(zones)] : 0
     location: location
     extensionDSCConfig: {
         enabled: true

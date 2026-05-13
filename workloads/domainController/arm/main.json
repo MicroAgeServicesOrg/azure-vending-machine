@@ -131,7 +131,7 @@
           "vmSize": {
             "value": "[parameters('vmSKU')]"
           },
-          "zone": "[if(parameters('useAvailabilityZones'), createObject('value', parameters('zones')[mod(range(0, parameters('dcCount'))[copyIndex()], length(parameters('zones')))]), createObject('value', null()))]",
+          "zone": "[if(parameters('useAvailabilityZones'), createObject('value', parameters('zones')[mod(range(0, parameters('dcCount'))[copyIndex()], length(parameters('zones')))]), createObject('value', 0))]",
           "location": {
             "value": "[parameters('location')]"
           },
